@@ -260,12 +260,8 @@ def _run_test_loop(tasks, session, item_by_coro):
     )
 
     loop = asyncio.get_event_loop()
-    try:
-        return loop.run_until_complete(
-            run_tests(tasks, int(max_tasks), session, item_by_coro)
-        )
-    finally:
-        loop.close()
+    tests_coro = run_tests(tasks, int(max_tasks), session, item_by_coro)
+    return loop.run_until_complete(tests_coro)
 
 
 @pytest.hookimpl(hookwrapper=True, tryfirst=True)
