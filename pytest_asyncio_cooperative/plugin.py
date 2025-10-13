@@ -259,7 +259,7 @@ def _run_test_loop(tasks, session, item_by_coro):
         or session.config.getini("max_asyncio_tasks")
     )
 
-    loop = asyncio.new_event_loop()
+    loop = asyncio.get_event_loop()
     try:
         return loop.run_until_complete(
             run_tests(tasks, int(max_tasks), session, item_by_coro)
