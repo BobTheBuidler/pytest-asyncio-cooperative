@@ -5,8 +5,20 @@ name: Python package
 
 on:
   push:
+    paths:
+      - '**/*.py'
+      - 'tests/**'
+      - 'pyproject.toml'
+      - 'requirements*.txt'
+      - '.github/workflows/python-package.yml'
     branches: [ "master" ]
   pull_request:
+    paths:
+      - '**/*.py'
+      - 'tests/**'
+      - 'pyproject.toml'
+      - 'requirements*.txt'
+      - '.github/workflows/python-package.yml'
     branches: [ "master" ]
 
 jobs:
