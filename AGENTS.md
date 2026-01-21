@@ -13,4 +13,7 @@ All agents must follow these rules:
 7) Update dependency lockfiles when adding or removing Python dependencies.
 8) If the branch you're assigned to work on tracks a remote (ie origin/master or upstream/awesome-feature), update it before you begin: run `git fetch --prune <remote>` and fast-forward your local branch (`git pull --ff-only` or rebase) so you start from the latest remote HEAD.
 
+9) Maximize the use of caching in GitHub workflow files to minimize run duration.
+10) Use one of `paths` or `paths-ignore` in every workflow file to make sure workflows only run when required.
+11) Centralize pytest settings (flags, markers, ignore patterns, and targets) in pyproject.toml, pytest.ini, setup.cfg, or tox.ini; workflows/hooks should call pytest without inline args.
 Reference: https://www.conventionalcommits.org/en/v1.0.0/
